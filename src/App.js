@@ -1,24 +1,23 @@
-import React, { Component } from "react";
+import React from 'react';
+import 'bootswatch/dist/cerulean/bootstrap.min.css';
 
-import Form from "react-jsonschema-form";
-
-const schema = {
-  title: "Todo",
-  type: "object",
-  required: ["title"],
-  properties: {
-    title: {type: "string", title: "Title", default: "A new task"},
-    done: {type: "boolean", title: "Done?", default: false}
-  }
-};
+import {formBaseElement} from './schema/form-element';
+import Form from 'react-jsonschema-form';
+import {onSubmit} from './transform';
 
 const log = (type) => console.log.bind(console, type);
 
-export default () => {
+function App() {
+
   return (
-      <Form schema={schema}
-            onChange={log("changed")}
-            onSubmit={log("submitted")}
-            onError={log("errors")}/>
-  )
+    <div className="App">
+      <div className="container">
+        <Form schema={formBaseElement}
+              onChange={log('changed')}
+              onSubmit={onSubmit}
+              onError={log('errors')}/></div>
+    </div>
+  );
 }
+
+export default App;

@@ -37,7 +37,7 @@ export const formBaseElement = {
           'validator': {
             'type': 'string',
             'title': 'validator',
-          }
+          },
         }
       }
     }
